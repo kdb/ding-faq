@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+/**
+ * There is no resuable way of generating a tab layout and Dynamo 
+ * has too many fixed widths so we have to work with what we got.
+ */ 
+body.page-faq .panel-threecol-left-stacked-right .panel-left { width: auto; }
+body.page-faq .panel-threecol-left-stacked-right .panel-middle { width: 510px; }
+body.page-faq .panel-threecol-left-stacked-right .panel-middle .panel-pane {padding: 20px; }
+
+body.page-faq .tab-navigation-main { width: 510px; }
+
+.view-faq-question-list ul { clear: both; }
+
+.view-faq-question-list li { padding: 10px 0; background: transparent url(../img/bg-divider.png) no-repeat left top; }
+.view-faq-question-list li.first { padding-top: 0; background: none; }
+
+/* FAQ question nodes */
