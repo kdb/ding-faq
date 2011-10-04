@@ -10,7 +10,9 @@ function ding_faq_user_default_permissions() {
   $permissions['create faq_question content'] = array(
     'name' => 'create faq_question content',
     'roles' => array(
-      '0' => 'super-admin',
+      '0' => 'Formidler',
+      '1' => 'redaktør (KDB)',
+      '2' => 'super-admin',
     ),
   );
 
@@ -18,7 +20,8 @@ function ding_faq_user_default_permissions() {
   $permissions['delete any faq_question content'] = array(
     'name' => 'delete any faq_question content',
     'roles' => array(
-      '0' => 'super-admin',
+      '0' => 'redaktør (KDB)',
+      '1' => 'super-admin',
     ),
   );
 
@@ -26,7 +29,8 @@ function ding_faq_user_default_permissions() {
   $permissions['delete own faq_question content'] = array(
     'name' => 'delete own faq_question content',
     'roles' => array(
-      '0' => 'super-admin',
+      '0' => 'Formidler',
+      '1' => 'super-admin',
     ),
   );
 
@@ -34,7 +38,8 @@ function ding_faq_user_default_permissions() {
   $permissions['edit any faq_question content'] = array(
     'name' => 'edit any faq_question content',
     'roles' => array(
-      '0' => 'super-admin',
+      '0' => 'redaktør (KDB)',
+      '1' => 'super-admin',
     ),
   );
 
@@ -42,7 +47,9 @@ function ding_faq_user_default_permissions() {
   $permissions['edit own faq_question content'] = array(
     'name' => 'edit own faq_question content',
     'roles' => array(
-      '0' => 'super-admin',
+      '0' => 'Formidler',
+      '1' => 'redaktør (KDB)',
+      '2' => 'super-admin',
     ),
   );
 
