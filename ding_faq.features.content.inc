@@ -200,7 +200,7 @@ function ding_faq_content_default_fields() {
     ),
     'widget_active' => '1',
     'type' => 'filefield',
-    'required' => '0',
+    'required' => '1',
     'multiple' => '0',
     'module' => 'filefield',
     'active' => '1',
@@ -283,7 +283,7 @@ function ding_faq_content_default_fields() {
     ),
     'widget_active' => '1',
     'type' => 'text',
-    'required' => '0',
+    'required' => '1',
     'multiple' => '0',
     'module' => 'text',
     'active' => '1',
@@ -301,7 +301,7 @@ function ding_faq_content_default_fields() {
         ),
       ),
       'default_value_php' => NULL,
-      'label' => 'Beskrivelse',
+      'label' => 'Smagsprøve',
       'weight' => '-3',
       'description' => '',
       'type' => 'text_textfield',
@@ -311,9 +311,9 @@ function ding_faq_content_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Beskrivelse');
   t('Indholdsbilleder');
   t('Listevisningsbillede');
+  t('Smagsprøve');
   t('Vedhæftede filer');
 
   return $fields;
