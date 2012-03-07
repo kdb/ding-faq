@@ -34,6 +34,35 @@ function ding_faq_node_info() {
 }
 
 /**
+ * Implementation of hook_nodequeue_export_features_default_settings().
+ */
+function ding_faq_nodequeue_export_features_default_settings() {
+ $nodequeue_export = array();
+
+ $nodequeue_export['ding_faq_promoted'] = array(
+   'name' => 'ding_faq_promoted',
+   'title' => 'Promoted FAQ questions',
+   'subqueue_title' => '',
+   'size' => '10',
+   'reverse' => '0',
+   'link' => 'Promote to front page',
+   'link_remove' => 'Remove to front page',
+   'owner' => 'nodequeue',
+   'roles' => array(),
+   'types' => array(
+     '0' => 'faq_question',
+   ),
+   'reference' => '0',
+   'i18n' => '0',
+   'show_in_links' => '1',
+   'show_in_tab' => '1',
+   'show_in_ui' => '1',
+   'new' => TRUE,
+ );
+ return $nodequeue_export;
+}
+
+/**
  * Implementation of hook_rules_defaults().
  */
 function ding_faq_rules_defaults() {
