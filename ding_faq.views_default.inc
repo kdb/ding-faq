@@ -10,7 +10,7 @@ function ding_faq_views_default_views() {
   $view = new view;
   $view->name = 'faq_question_list';
   $view->description = 'List of FAQ questions';
-  $view->tag = '';
+  $view->tag = 'ding_faq';
   $view->base_table = 'node';
   $view->core = 0;
   $view->api_version = '2';
@@ -195,7 +195,7 @@ function ding_faq_views_default_views() {
       'default_argument_type' => 'fixed',
       'default_argument' => '',
       'validate_type' => 'numeric',
-      'validate_fail' => 'ignore',
+      'validate_fail' => 'empty',
       'break_phrase' => 0,
       'add_table' => 0,
       'require_value' => 0,
@@ -213,7 +213,7 @@ function ding_faq_views_default_views() {
         6 => 0,
       ),
       'override' => array(
-        'button' => 'Brug standard',
+        'button' => 'Use default',
       ),
       'relationship' => 'none',
       'default_options_div_prefix' => '',
@@ -233,8 +233,11 @@ function ding_faq_views_default_views() {
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
+        6 => 0,
         4 => 0,
         5 => 0,
+        7 => 0,
+        8 => 0,
         1 => 0,
         2 => 0,
       ),
@@ -242,6 +245,24 @@ function ding_faq_views_default_views() {
       'validate_argument_transform' => 0,
       'validate_user_restrict_roles' => 0,
       'validate_argument_php' => '',
+      'default_taxonomy_tid_term_page' => 0,
+      'default_taxonomy_tid_node' => 0,
+      'default_taxonomy_tid_limit' => 0,
+      'default_taxonomy_tid_vids' => array(
+        6 => 0,
+        4 => 0,
+        5 => 0,
+        7 => 0,
+        8 => 0,
+        1 => 0,
+        2 => 0,
+      ),
+      'validate_argument_node_flag_name' => '*relationship*',
+      'validate_argument_node_flag_test' => 'flaggable',
+      'validate_argument_node_flag_id_type' => 'id',
+      'validate_argument_user_flag_name' => '*relationship*',
+      'validate_argument_user_flag_test' => 'flaggable',
+      'validate_argument_user_flag_id_type' => 'id',
     ),
   ));
   $handler->override_option('use_pager', '1');

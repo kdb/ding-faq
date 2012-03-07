@@ -190,11 +190,11 @@ function ding_faq_default_page_manager_pages() {
       'settings' => array(
         'input_form' => 'tid',
         'vids' => array(
-          14 => 14,
+          6 => 0,
           4 => 0,
           5 => 0,
-          13 => 0,
-          12 => 0,
+          7 => 0,
+          8 => 0,
           1 => 0,
           2 => 0,
         ),
@@ -245,7 +245,7 @@ function ding_faq_default_page_manager_pages() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'vocabulary' => '14',
+      'vocabulary' => '8',
       'override_title' => 0,
       'override_title_text' => '',
       'context' => 'argument_term_1',
