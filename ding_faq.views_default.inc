@@ -190,7 +190,7 @@ function ding_faq_views_default_views() {
       'style_options' => array(),
       'wildcard' => 'all',
       'wildcard_substitution' => 'Alle',
-      'title' => '',
+      'title' => 'FAQ for %1',
       'breadcrumb' => '',
       'default_argument_type' => 'fixed',
       'default_argument' => '',

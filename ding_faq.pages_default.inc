@@ -310,8 +310,8 @@ function ding_faq_default_page_manager_pages() {
     $pane->position = 0;
     $display->content['new-3'] = $pane;
     $display->panels['right'][0] = 'new-3';
-  $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = '0';
+  $display->hide_title = PANELS_TITLE_PANE;
+  $display->title_pane = 'new-2';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['faq_question_overview'] = $page;
