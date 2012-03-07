@@ -174,7 +174,7 @@ function ding_faq_views_default_views() {
     'type' => 'rules',
   ));
   $handler->override_option('title', 'FAQ');
-  $handler->override_option('empty', 'Ingen kommende arrangementer.');
+  $handler->override_option('empty', 'Ingen FAQs fundet.');
   $handler->override_option('empty_format', '1');
   $handler->override_option('use_pager', '0');
   $handler->override_option('style_plugin', 'list');
