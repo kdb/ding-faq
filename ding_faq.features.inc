@@ -42,7 +42,7 @@ function ding_faq_nodequeue_export_features_default_settings() {
  $nodequeue_export['ding_faq_promoted'] = array(
    'name' => 'ding_faq_promoted',
    'title' => 'Promoted FAQ questions',
-   'subqueue_title' => '',
+   'subqueue_title' => 'Promoted FAQ questions',
    'size' => '10',
    'reverse' => '0',
    'link' => 'Promote to front page',
@@ -58,6 +58,7 @@ function ding_faq_nodequeue_export_features_default_settings() {
    'show_in_tab' => '1',
    'show_in_ui' => '1',
    'new' => TRUE,
+   'add_subqueue' => 'Promoted FAQ questions',
  );
  return $nodequeue_export;
 }
