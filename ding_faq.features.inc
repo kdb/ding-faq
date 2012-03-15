@@ -58,7 +58,9 @@ function ding_faq_nodequeue_export_features_default_settings() {
    'show_in_tab' => '1',
    'show_in_ui' => '1',
    'new' => TRUE,
-   'add_subqueue' => 'Promoted FAQ questions',
+   'add_subqueue' => array(
+    'Promoted FAQ questions' => NULL,
+   ),
  );
  return $nodequeue_export;
 }
