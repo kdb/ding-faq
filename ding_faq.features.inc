@@ -71,6 +71,74 @@ function ding_faq_nodequeue_export_features_default_settings() {
 function ding_faq_rules_defaults() {
   return array(
     'rules' => array(
+      'rules_ding_faq_promoted_nodequeue_updated' => array(
+        '#type' => 'rule',
+        '#set' => 'event_nodequeue_saved',
+        '#label' => 'Ding! FAQ promoted nodequeue updated',
+        '#active' => 1,
+        '#weight' => '0',
+        '#categories' => array(
+          '0' => 'ding_faq',
+          '1' => 'FAQ',
+        ),
+        '#status' => 'default',
+        '#conditions' => array(
+          '0' => array(
+            '#type' => 'condition',
+            '#settings' => array(
+              'queues' => array(
+                '6' => '6',
+              ),
+              '#argument map' => array(
+                'nodequeue' => 'nodequeue',
+              ),
+            ),
+            '#name' => 'nodequeue_rules_condition_belongs_to_nodequeue',
+            '#info' => array(
+              'label' => 'Queue is “Promoted FAQ questions”',
+              'label callback' => FALSE,
+              'module' => 'Nodequeue',
+              'arguments' => array(
+                'nodequeue' => array(
+                  'type' => 'nodequeue',
+                  'label' => 'Nodekø',
+                ),
+              ),
+            ),
+            '#weight' => 0,
+          ),
+        ),
+        '#actions' => array(
+          '1' => array(
+            '#info' => array(
+              'label' => 'Clear the cache of the FAQ question list view.',
+              'label callback' => FALSE,
+              'arguments' => array(
+                'view' => array(
+                  'type' => 'string',
+                  'label' => 'Vis',
+                  'description' => 'Specify the view you want to clear.',
+                ),
+              ),
+              'module' => 'Cache Actions',
+            ),
+            '#name' => 'cache_actions_action_clear_views_cache',
+            '#settings' => array(
+              'view' => 'faq_question_list',
+              '#eval input' => array(
+                'token_rules_input_evaluator' => array(
+                  'view' => array(
+                    '0' => ':global',
+                  ),
+                ),
+              ),
+            ),
+            '#type' => 'action',
+            '#weight' => 0,
+          ),
+        ),
+        '#version' => 6003,
+      ),
       'rules_faq_question_deleted' => array(
         '#type' => 'rule',
         '#set' => 'event_node_delete',
