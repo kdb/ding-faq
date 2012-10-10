@@ -6,7 +6,7 @@
 function ding_faq_default_page_manager_handlers() {
   $export = array();
 
-  $handler = new stdClass;
+  $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
   $handler->name = 'faq_node_view_panel_page';
@@ -36,7 +36,7 @@ function ding_faq_default_page_manager_handlers() {
           'name' => 'node_type',
           'settings' => array(
             'type' => array(
-              'eresource' => 'eresource',
+              'faq_question' => 'faq_question',
             ),
           ),
           'context' => 'argument_nid_1',
@@ -316,6 +316,5 @@ function ding_faq_default_page_manager_pages() {
   $page->default_handlers[$handler->name] = $handler;
   $pages['faq_question_overview'] = $page;
 
- return $pages;
-
+  return $pages;
 }
