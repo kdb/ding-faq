@@ -402,7 +402,7 @@ function ding_faq_views_default_views() {
     ),
   ));
   $handler->override_option('title', 'Promoted FAQs');
-  $handler->override_option('footer', '<a class="more-link" href="/faq">mere…</a>');
+  $handler->override_option('footer', '<a class="more-link" href="/faq">mere</a>');
   $handler->override_option('footer_format', '3');
   $handler->override_option('footer_empty', 0);
   $handler->override_option('empty', '');
