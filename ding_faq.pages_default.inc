@@ -6,7 +6,7 @@
 function ding_faq_default_page_manager_handlers() {
   $export = array();
 
-  $handler = new stdClass();
+  $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
   $handler->name = 'faq_node_view_panel_page';
@@ -93,19 +93,13 @@ function ding_faq_default_page_manager_handlers() {
     $pane = new stdClass;
     $pane->pid = 'new-2';
     $pane->panel = 'right';
-    $pane->type = 'block';
-    $pane->subtype = 'tagadelic-2';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'faq_question_list-panel_pane_2';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
+    $pane->configuration = array();
     $pane->cache = array();
-    $pane->style = array(
-      'style' => 'ding_box',
-      'settings' => NULL,
-    );
+    $pane->style = array();
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
@@ -316,5 +310,6 @@ function ding_faq_default_page_manager_pages() {
   $page->default_handlers[$handler->name] = $handler;
   $pages['faq_question_overview'] = $page;
 
-  return $pages;
+ return $pages;
+
 }
