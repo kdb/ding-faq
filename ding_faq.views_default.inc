@@ -1,433 +1,165 @@
 <?php
+/**
+ * @file
+ * ding_faq.views_default.inc
+ */
 
 /**
- * Implementation of hook_views_default_views().
+ * Implements hook_views_default_views().
  */
 function ding_faq_views_default_views() {
-  $views = array();
+  $export = array();
 
-  // Exported view: faq_question_list
-  $view = new view;
-  $view->name = 'faq_question_list';
-  $view->description = 'List of FAQ questions';
-  $view->tag = 'ding_faq';
+  $view = new view();
+  $view->name = 'ding_faq';
+  $view->description = '';
+  $view->tag = 'default';
   $view->base_table = 'node';
-  $view->core = 0;
-  $view->api_version = '2';
+  $view->human_name = 'Ding FAQ';
+  $view->core = 7;
+  $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-  $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->override_option('fields', array(
-    'title' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_node' => 1,
-      'exclude' => 0,
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
-      'relationship' => 'none',
-      'override' => array(
-        'button' => 'Tilsidesæt',
-      ),
-    ),
-    'field_image_fid' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'strip_tags' => 0,
-        'html' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_node' => 0,
-      'label_type' => 'none',
-      'format' => '120_120_linked',
-      'multiple' => array(
-        'group' => TRUE,
-        'multiple_number' => '',
-        'multiple_from' => '',
-        'multiple_reversed' => FALSE,
-      ),
-      'exclude' => 0,
-      'id' => 'field_image_fid',
-      'table' => 'node_data_field_image',
-      'field' => 'field_image_fid',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-    'field_teaser_value' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'strip_tags' => 0,
-        'html' => 0,
-      ),
-      'link_to_node' => 0,
-      'label_type' => 'none',
-      'format' => 'plain',
-      'multiple' => array(
-        'group' => TRUE,
-        'multiple_number' => '',
-        'multiple_from' => '',
-        'multiple_reversed' => FALSE,
-      ),
-      'exclude' => 0,
-      'id' => 'field_teaser_value',
-      'table' => 'node_data_field_teaser',
-      'field' => 'field_teaser_value',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('sorts', array(
-    'title' => array(
-      'order' => 'ASC',
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('filters', array(
-    'status' => array(
-      'operator' => '=',
-      'value' => '1',
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'status',
-      'table' => 'node',
-      'field' => 'status',
-      'relationship' => 'none',
-    ),
-    'type' => array(
-      'operator' => 'in',
-      'value' => array(
-        'faq_question' => 'faq_question',
-      ),
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'type',
-      'table' => 'node',
-      'field' => 'type',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('access', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('cache', array(
-    'type' => 'rules',
-  ));
-  $handler->override_option('title', 'FAQ');
-  $handler->override_option('empty', 'Ingen FAQs fundet.');
-  $handler->override_option('empty_format', '1');
-  $handler->override_option('use_pager', '0');
-  $handler->override_option('style_plugin', 'list');
-  $handler->override_option('style_options', array(
-    'grouping' => '',
-    'type' => 'ul',
-  ));
-  $handler = $view->new_display('panel_pane', 'FAQ question overview pane', 'panel_pane_1');
-  $handler->override_option('arguments', array(
-    'tid' => array(
-      'default_action' => 'ignore',
-      'style_plugin' => 'default_summary',
-      'style_options' => array(),
-      'wildcard' => 'all',
-      'wildcard_substitution' => 'Alle',
-      'title' => 'FAQ for %1',
-      'breadcrumb' => '',
-      'default_argument_type' => 'fixed',
-      'default_argument' => '',
-      'validate_type' => 'numeric',
-      'validate_fail' => 'empty',
-      'break_phrase' => 0,
-      'add_table' => 0,
-      'require_value' => 0,
-      'reduce_duplicates' => 0,
-      'set_breadcrumb' => 0,
-      'id' => 'tid',
-      'table' => 'term_node',
-      'field' => 'tid',
-      'validate_user_argument_type' => 'uid',
-      'validate_user_roles' => array(
-        2 => 0,
-        3 => 0,
-        4 => 0,
-        5 => 0,
-        6 => 0,
-      ),
-      'override' => array(
-        'button' => 'Use default',
-      ),
-      'relationship' => 'none',
-      'default_options_div_prefix' => '',
-      'default_argument_user' => 0,
-      'default_argument_fixed' => '',
-      'default_argument_php' => '',
-      'validate_argument_node_type' => array(
-        'campaign' => 0,
-        'article' => 0,
-        'feature' => 0,
-        'profile' => 0,
-        'event' => 0,
-        'library' => 0,
-        'page' => 0,
-        'topic' => 0,
-      ),
-      'validate_argument_node_access' => 0,
-      'validate_argument_nid_type' => 'nid',
-      'validate_argument_vocabulary' => array(
-        6 => 0,
-        4 => 0,
-        5 => 0,
-        7 => 0,
-        8 => 0,
-        1 => 0,
-        2 => 0,
-      ),
-      'validate_argument_type' => 'tid',
-      'validate_argument_transform' => 0,
-      'validate_user_restrict_roles' => 0,
-      'validate_argument_php' => '',
-      'default_taxonomy_tid_term_page' => 0,
-      'default_taxonomy_tid_node' => 0,
-      'default_taxonomy_tid_limit' => 0,
-      'default_taxonomy_tid_vids' => array(
-        6 => 0,
-        4 => 0,
-        5 => 0,
-        7 => 0,
-        8 => 0,
-        1 => 0,
-        2 => 0,
-      ),
-      'validate_argument_node_flag_name' => '*relationship*',
-      'validate_argument_node_flag_test' => 'flaggable',
-      'validate_argument_node_flag_id_type' => 'id',
-      'validate_argument_user_flag_name' => '*relationship*',
-      'validate_argument_user_flag_test' => 'flaggable',
-      'validate_argument_user_flag_id_type' => 'id',
-    ),
-  ));
-  $handler->override_option('use_pager', '1');
-  $handler->override_option('row_plugin', 'node');
-  $handler->override_option('row_options', array(
-    'relationship' => 'none',
-    'build_mode' => 'teaser',
-    'links' => 1,
-    'comments' => 0,
-  ));
-  $handler->override_option('pane_title', 'FAQ');
-  $handler->override_option('pane_description', '');
-  $handler->override_option('pane_category', array(
-    'name' => 'View panes',
-    'weight' => 0,
-  ));
-  $handler->override_option('allow', array(
-    'use_pager' => FALSE,
-    'items_per_page' => FALSE,
-    'offset' => FALSE,
-    'link_to_view' => FALSE,
-    'more_link' => FALSE,
-    'path_override' => FALSE,
-    'title_override' => FALSE,
-    'exposed_form' => FALSE,
-    'fields_override' => FALSE,
-  ));
-  $handler->override_option('argument_input', array(
-    'tid' => array(
-      'type' => 'context',
-      'context' => 'term.tid',
-      'context_optional' => 1,
-      'panel' => '0',
-      'fixed' => '',
-      'label' => 'Taksonomi: Term ID',
-    ),
-  ));
-  $handler->override_option('link_to_view', 0);
-  $handler->override_option('inherit_panels_path', '1');
-  $handler = $view->new_display('panel_pane', 'Promoted questions title list', 'panel_pane_2');
-  $handler->override_option('relationships', array(
-    'nodequeue_rel_queue_name' => array(
-      'label' => 'queue',
-      'required' => 0,
-      'limit' => 1,
-      'names' => array(
-        'ding_faq_promoted' => 'ding_faq_promoted',
-        'ding_tabroll_frontpage_queue' => 0,
-      ),
-      'id' => 'nodequeue_rel_queue_name',
-      'table' => 'node',
-      'field' => 'nodequeue_rel_queue_name',
-      'override' => array(
-        'button' => 'Use default',
-      ),
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('fields', array(
-    'title' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_node' => 1,
-      'exclude' => 0,
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
-      'relationship' => 'none',
-      'override' => array(
-        'button' => 'Tilsidesæt',
-      ),
-    ),
-  ));
-  $handler->override_option('sorts', array(
-    'position' => array(
-      'order' => 'ASC',
-      'id' => 'position',
-      'table' => 'nodequeue_nodes',
-      'field' => 'position',
-      'relationship' => 'nodequeue_rel_queue_name',
-      'override' => array(
-        'button' => 'Use default',
-      ),
-    ),
-  ));
-  $handler->override_option('filters', array(
-    'status' => array(
-      'operator' => '=',
-      'value' => '1',
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'status',
-      'table' => 'node',
-      'field' => 'status',
-      'relationship' => 'none',
-    ),
-    'in_queue' => array(
-      'operator' => '=',
-      'value' => '1',
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'in_queue',
-      'table' => 'nodequeue_nodes',
-      'field' => 'in_queue',
-      'relationship' => 'nodequeue_rel_queue_name',
-      'override' => array(
-        'button' => 'Use default',
-      ),
-    ),
-  ));
-  $handler->override_option('title', 'Promoted FAQs');
-  $handler->override_option('footer', '<a class="more-link" href="/faq">Mere</a>');
-  $handler->override_option('footer_format', '3');
-  $handler->override_option('footer_empty', 0);
-  $handler->override_option('empty', '');
-  $handler->override_option('pane_title', 'Promoted FAQ question list');
-  $handler->override_option('pane_description', '');
-  $handler->override_option('pane_category', array(
-    'name' => 'View panes',
-    'weight' => 0,
-  ));
-  $handler->override_option('allow', array(
-    'use_pager' => FALSE,
-    'items_per_page' => FALSE,
-    'offset' => FALSE,
-    'link_to_view' => FALSE,
-    'more_link' => FALSE,
-    'path_override' => FALSE,
-    'title_override' => FALSE,
-    'exposed_form' => FALSE,
-    'fields_override' => FALSE,
-  ));
-  $handler->override_option('argument_input', array());
-  $handler->override_option('link_to_view', 0);
-  $handler->override_option('inherit_panels_path', 0);
 
-  $views[$view->name] = $view;
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'Læs mere';
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_options']['row_class'] = 'news-list-item';
+  $handler->display->display_options['style_options']['class'] = 'list news-list';
+  $handler->display->display_options['style_options']['wrapper_class'] = '';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Felt: Indhold: List image */
+  $handler->display->display_options['fields']['field_ding_faq_list_image']['id'] = 'field_ding_faq_list_image';
+  $handler->display->display_options['fields']['field_ding_faq_list_image']['table'] = 'field_data_field_ding_faq_list_image';
+  $handler->display->display_options['fields']['field_ding_faq_list_image']['field'] = 'field_ding_faq_list_image';
+  $handler->display->display_options['fields']['field_ding_faq_list_image']['label'] = '';
+  $handler->display->display_options['fields']['field_ding_faq_list_image']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_ding_faq_list_image']['element_class'] = 'news-image-wrapper';
+  $handler->display->display_options['fields']['field_ding_faq_list_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_ding_faq_list_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_ding_faq_list_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_ding_faq_list_image']['type'] = 'cs_adaptive_image';
+  $handler->display->display_options['fields']['field_ding_faq_list_image']['settings'] = array(
+    'image_link' => 'content',
+    'styles' => array(
+      'breakpoint_1' => '768',
+      'style_1' => 'ding_list_medium',
+      'breakpoint_2' => '500',
+      'style_2' => 'ding_list_small',
+      'max_style' => 'ding_list_large',
+      'fallback_style' => 'ding_list_large',
+    ),
+  );
+  /* Felt: Indhold: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_class'] = 'news-heading';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
+  /* Felt: Indhold: Category */
+  $handler->display->display_options['fields']['field_ding_faq_category']['id'] = 'field_ding_faq_category';
+  $handler->display->display_options['fields']['field_ding_faq_category']['table'] = 'field_data_field_ding_faq_category';
+  $handler->display->display_options['fields']['field_ding_faq_category']['field'] = 'field_ding_faq_category';
+  $handler->display->display_options['fields']['field_ding_faq_category']['label'] = '';
+  $handler->display->display_options['fields']['field_ding_faq_category']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_ding_faq_category']['element_class'] = 'news-label';
+  $handler->display->display_options['fields']['field_ding_faq_category']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_ding_faq_category']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_ding_faq_category']['element_default_classes'] = FALSE;
+  /* Felt: Indhold: Lead */
+  $handler->display->display_options['fields']['field_ding_faq_lead']['id'] = 'field_ding_faq_lead';
+  $handler->display->display_options['fields']['field_ding_faq_lead']['table'] = 'field_data_field_ding_faq_lead';
+  $handler->display->display_options['fields']['field_ding_faq_lead']['field'] = 'field_ding_faq_lead';
+  $handler->display->display_options['fields']['field_ding_faq_lead']['label'] = '';
+  $handler->display->display_options['fields']['field_ding_faq_lead']['element_type'] = 'p';
+  $handler->display->display_options['fields']['field_ding_faq_lead']['element_class'] = 'news-list-content';
+  $handler->display->display_options['fields']['field_ding_faq_lead']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_ding_faq_lead']['element_default_classes'] = FALSE;
+  /* Felt: Indhold: Link */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['view_node']['element_wrapper_type'] = 'span';
+  $handler->display->display_options['fields']['view_node']['element_wrapper_class'] = 'news-link';
+  $handler->display->display_options['fields']['view_node']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['view_node']['text'] = 'Læs mere';
+  /* Sorteringskriterie: Indhold: Titel */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['sorts']['title']['order'] = 'DESC';
+  /* Kontekstuelt filter: Indhold: Har taksonomiterm ID */
+  $handler->display->display_options['arguments']['tid']['id'] = 'tid';
+  $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_index';
+  $handler->display->display_options['arguments']['tid']['field'] = 'tid';
+  $handler->display->display_options['arguments']['tid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['tid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['tid']['validate']['type'] = 'taxonomy_term';
+  $handler->display->display_options['arguments']['tid']['validate_options']['vocabularies'] = array(
+    'ding_faq_category' => 'ding_faq_category',
+  );
+  $handler->display->display_options['arguments']['tid']['validate']['fail'] = 'empty';
+  /* Filterkriterie: Indhold: Udgivet */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filterkriterie: Indhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'ding_faq_question' => 'ding_faq_question',
+  );
+  $translatables['ding_faq'] = array(
+    t('Master'),
+    t('Læs mere'),
+    t('Udfør'),
+    t('Gendan'),
+    t('Sortér efter'),
+    t('Stigende'),
+    t('Faldende'),
+    t('Antal elementer'),
+    t('- Alle -'),
+    t('Forskydning'),
+    t('« første'),
+    t('‹ forrige'),
+    t('næste ›'),
+    t('sidste »'),
+    t('Alle'),
+  );
+  $export['ding_faq'] = $view;
 
-  return $views;
+  return $export;
 }
