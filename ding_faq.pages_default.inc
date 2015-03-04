@@ -94,10 +94,11 @@ function ding_faq_default_page_manager_handlers() {
   );
   $display->cache = array();
   $display->title = '';
+  $display->uuid = 'd82976d5-f78c-46b3-8d9a-c2ba458d539c';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-1';
+    $pane->pid = 'new-203b68b0-35f7-4be2-bac3-b300a7e5f01c';
     $pane->panel = 'left_sidebar';
     $pane->type = 'taxonomy_menu';
     $pane->subtype = 'taxonomy_menu';
@@ -124,10 +125,11 @@ function ding_faq_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-1'] = $pane;
-    $display->panels['left_sidebar'][0] = 'new-1';
+    $pane->uuid = '203b68b0-35f7-4be2-bac3-b300a7e5f01c';
+    $display->content['new-203b68b0-35f7-4be2-bac3-b300a7e5f01c'] = $pane;
+    $display->panels['left_sidebar'][0] = 'new-203b68b0-35f7-4be2-bac3-b300a7e5f01c';
     $pane = new stdClass();
-    $pane->pid = 'new-2';
+    $pane->pid = 'new-9585f181-cf01-4270-a7fd-b981246d6e2c';
     $pane->panel = 'main_content';
     $pane->type = 'node_content';
     $pane->subtype = 'node_content';
@@ -156,10 +158,11 @@ function ding_faq_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = '';
-    $display->content['new-2'] = $pane;
-    $display->panels['main_content'][0] = 'new-2';
+    $pane->uuid = '9585f181-cf01-4270-a7fd-b981246d6e2c';
+    $display->content['new-9585f181-cf01-4270-a7fd-b981246d6e2c'] = $pane;
+    $display->panels['main_content'][0] = 'new-9585f181-cf01-4270-a7fd-b981246d6e2c';
     $pane = new stdClass();
-    $pane->pid = 'new-3';
+    $pane->pid = 'new-fb3893c4-f99a-47a1-989f-46b5483382fd';
     $pane->panel = 'right_sidebar';
     $pane->type = 'campaign';
     $pane->subtype = 'campaign';
@@ -191,10 +194,11 @@ function ding_faq_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = '';
-    $display->content['new-3'] = $pane;
-    $display->panels['right_sidebar'][0] = 'new-3';
+    $pane->uuid = 'fb3893c4-f99a-47a1-989f-46b5483382fd';
+    $display->content['new-fb3893c4-f99a-47a1-989f-46b5483382fd'] = $pane;
+    $display->panels['right_sidebar'][0] = 'new-fb3893c4-f99a-47a1-989f-46b5483382fd';
   $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = 'new-2';
+  $display->title_pane = 'new-9585f181-cf01-4270-a7fd-b981246d6e2c';
   $handler->conf['display'] = $display;
   $export['node_view_panel_context_7'] = $handler;
 
@@ -255,10 +259,11 @@ function ding_faq_default_page_manager_handlers() {
   );
   $display->cache = array();
   $display->title = '';
+  $display->uuid = 'b26aa280-3fc3-47b1-97b3-885d09414f55';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-4';
+    $pane->pid = 'new-1bc914a1-9fbf-4fda-88e1-f9d0864b6abf';
     $pane->panel = 'left_sidebar';
     $pane->type = 'taxonomy_menu';
     $pane->subtype = 'taxonomy_menu';
@@ -285,10 +290,11 @@ function ding_faq_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-4'] = $pane;
-    $display->panels['left_sidebar'][0] = 'new-4';
+    $pane->uuid = '1bc914a1-9fbf-4fda-88e1-f9d0864b6abf';
+    $display->content['new-1bc914a1-9fbf-4fda-88e1-f9d0864b6abf'] = $pane;
+    $display->panels['left_sidebar'][0] = 'new-1bc914a1-9fbf-4fda-88e1-f9d0864b6abf';
     $pane = new stdClass();
-    $pane->pid = 'new-5';
+    $pane->pid = 'new-d602fe54-4a87-4a79-8078-74679d881065';
     $pane->panel = 'main_content';
     $pane->type = 'views';
     $pane->subtype = 'ding_faq';
@@ -321,10 +327,11 @@ function ding_faq_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-5'] = $pane;
-    $display->panels['main_content'][0] = 'new-5';
+    $pane->uuid = 'd602fe54-4a87-4a79-8078-74679d881065';
+    $display->content['new-d602fe54-4a87-4a79-8078-74679d881065'] = $pane;
+    $display->panels['main_content'][0] = 'new-d602fe54-4a87-4a79-8078-74679d881065';
   $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = 'new-5';
+  $display->title_pane = 'new-d602fe54-4a87-4a79-8078-74679d881065';
   $handler->conf['display'] = $display;
   $export['term_view_panel_context_4'] = $handler;
 
@@ -343,7 +350,10 @@ function ding_faq_default_page_manager_pages() {
   $page->admin_title = 'FAQ';
   $page->admin_description = '';
   $page->path = 'faq';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
     'title' => 'FAQ',
@@ -411,10 +421,11 @@ function ding_faq_default_page_manager_pages() {
   );
   $display->cache = array();
   $display->title = '';
+  $display->uuid = 'f2412742-db92-4838-b255-e454432f300d';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-1';
+    $pane->pid = 'new-b5fdb648-a350-423f-a311-5ad77fa19d96';
     $pane->panel = 'left_sidebar';
     $pane->type = 'taxonomy_menu';
     $pane->subtype = 'taxonomy_menu';
@@ -441,10 +452,11 @@ function ding_faq_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-1'] = $pane;
-    $display->panels['left_sidebar'][0] = 'new-1';
+    $pane->uuid = 'b5fdb648-a350-423f-a311-5ad77fa19d96';
+    $display->content['new-b5fdb648-a350-423f-a311-5ad77fa19d96'] = $pane;
+    $display->panels['left_sidebar'][0] = 'new-b5fdb648-a350-423f-a311-5ad77fa19d96';
     $pane = new stdClass();
-    $pane->pid = 'new-2';
+    $pane->pid = 'new-ea388827-95e4-4374-8ed2-a9915560a418';
     $pane->panel = 'main_content';
     $pane->type = 'views';
     $pane->subtype = 'ding_faq';
@@ -477,10 +489,11 @@ function ding_faq_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-2'] = $pane;
-    $display->panels['main_content'][0] = 'new-2';
+    $pane->uuid = 'ea388827-95e4-4374-8ed2-a9915560a418';
+    $display->content['new-ea388827-95e4-4374-8ed2-a9915560a418'] = $pane;
+    $display->panels['main_content'][0] = 'new-ea388827-95e4-4374-8ed2-a9915560a418';
   $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = 'new-2';
+  $display->title_pane = 'new-ea388827-95e4-4374-8ed2-a9915560a418';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['faq'] = $page;
