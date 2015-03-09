@@ -70,4 +70,4 @@ features_exclude[field][node-ding_faq_question-field_ding_faq_list_image] = node
 features_exclude[field][node-ding_faq_question-field_ding_faq_category] = node-ding_faq_question-field_ding_faq_category
 features_exclude[field][node-ding_faq_question-field_ding_faq_tags] = node-ding_faq_question-field_ding_faq_tags
 features_exclude[field][node-ding_faq_question-field_ding_faq_files] = node-ding_faq_question-field_ding_faq_files
-mtime = 1425458394
+mtime = 1425895083
