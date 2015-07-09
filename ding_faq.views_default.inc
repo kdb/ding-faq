@@ -87,7 +87,8 @@ function ding_faq_views_default_views() {
   $handler->display->display_options['fields']['field_ding_faq_category']['element_type'] = 'span';
   $handler->display->display_options['fields']['field_ding_faq_category']['element_class'] = 'news-label';
   $handler->display->display_options['fields']['field_ding_faq_category']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_ding_faq_category']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_ding_faq_category']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_ding_faq_category']['element_wrapper_class'] = 'news-sub-heading';
   $handler->display->display_options['fields']['field_ding_faq_category']['element_default_classes'] = FALSE;
   /* Field: Content: Lead */
   $handler->display->display_options['fields']['field_ding_faq_lead']['id'] = 'field_ding_faq_lead';
